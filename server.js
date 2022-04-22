@@ -9,10 +9,13 @@ var methodOverride = require('method-override');
 
 require('dotenv').config();
 require('./config/database');
+// configure passport
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// var moviesRouter = require('./routes/movies');
+// var reviewsRouter = require('./routes/reviews');
+// var performersRouter = require('./routes/performers');
 
 var app = express();
 
@@ -25,8 +28,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride('_method')); -
+app.use(methodOverride('_method'));
 
+// Session middleware
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
@@ -35,12 +39,25 @@ app.use(session({
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
+// Make user available within every EJS template
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
+const isLoggedIn = require('./config/auth');
+
+// app.use('/', indexRouter);
+// app.use('/movies', moviesRouter);
+// Not all routes begin with /movies, therefore
+// mount to root for max flexibility
+// app.use('/', isLoggedIn, performersRouter);
+// // Yup, another related resource - mount to root
+// app.use('/', isLoggedIn, reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  res.locals.user = req.user;
   next(createError(404));
 });
 
