@@ -1,0 +1,12 @@
+<%- include('./partials/header') %>
+
+<form id="new-form" action="/posts" method="POST">
+    <label>Title:</label>
+    <input type="text" name="title">
+    <label>Date Posted:</label>
+    <input type="text" name="datePosted">
+    <input type="submit" value="Add Post">
+</form>
+  
+<%- include('./partials/footer') %>
+  

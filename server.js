@@ -13,7 +13,7 @@ require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
-// var moviesRouter = require('./routes/movies');
+const postRouter = require('./routes/posts');
 // var reviewsRouter = require('./routes/reviews');
 // var performersRouter = require('./routes/performers');
 
@@ -46,10 +46,10 @@ app.use(function(req, res, next) {
   next();
 });
 
-const isLoggedIn = require('./config/auth');
+//const isLoggedIn = require('./config/auth');
 
-app.use('/', indexRouter);
-// app.use('/movies', moviesRouter);
+app.get('/', indexRouter);
+app.use('/posts', postRouter);
 // Not all routes begin with /movies, therefore
 // mount to root for max flexibility
 // app.use('/', isLoggedIn, performersRouter);
