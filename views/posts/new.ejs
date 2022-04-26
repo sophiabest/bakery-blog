@@ -1,12 +1,14 @@
-<%- include('./partials/header') %>
+<%- include('../partials/header') %>
 
-<form id="new-form" action="/posts" method="POST">
-    <label>Title:</label>
-    <input type="text" name="title">
-    <label>Date Posted:</label>
-    <input type="text" name="datePosted">
-    <input type="submit" value="Add Post">
+<h2>Enter New Post</h2>
+<form id="new-form" action="/posts" method="POST" class="postForm">
+    <!-- <input type="image"> -->
+    <label>Post Name:</label>
+        <input type="text" name="title" required><br>
+    
+    <label for="content" >Content:</label>
+        <input type="text" name="content" required><br> 
+    <input type="submit">
 </form>
-  
-<%- include('./partials/footer') %>
-  
+
+<%- include('../partials/footer') %>

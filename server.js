@@ -13,9 +13,7 @@ require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
-const postRouter = require('./routes/posts');
-// var reviewsRouter = require('./routes/reviews');
-// var performersRouter = require('./routes/performers');
+var postsRouter = require('./routes/posts');
 
 var app = express();
 
@@ -36,6 +34,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -46,15 +45,10 @@ app.use(function(req, res, next) {
   next();
 });
 
-//const isLoggedIn = require('./config/auth');
+// const isLoggedIn = require('./config/auth');
 
-app.get('/', indexRouter);
-app.use('/posts', postRouter);
-// Not all routes begin with /movies, therefore
-// mount to root for max flexibility
-// app.use('/', isLoggedIn, performersRouter);
-// // Yup, another related resource - mount to root
-// app.use('/', isLoggedIn, reviewsRouter);
+app.use('/', indexRouter);
+app.use('/posts', postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

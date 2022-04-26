@@ -1,21 +1,22 @@
 const Post = require('../models/post');
 
 module.exports = {
-    index,
+    index, 
+    show,
     new: newPost,
-    create,
-    show
+    create
+   
 }
 
 function index(req, res) {
-    Post.find({}, function(err, posts) {
-      res.render('posts/index', { title: 'All Posts', posts });
+    Post.find({}, function (err, posts) {
+       res.render('posts/index', { posts })
     });
 }
 
 function show(req, res) {
-    Post.findById(req.params.id, (err, post) => {
-        res.render(`posts/show`, { title: 'Post Detail', post });
+    Post.findById(req.params.id, function(err, post) {
+            res.render(`posts/show`, { show })
     });
 }
 
@@ -24,11 +25,9 @@ function newPost(req, res) {
 }
 
 function create(req, res) {
-    var post = new Post(req.body);
-    post.save(function(err) {
-        if (err) return res.redirect('/posts/new');
-        console.log(post);
-        res.redirect(`/posts/${post._id}`);
-    });
+    Post.create(req.body);
+    res.redirect('/posts')
 }
+
+
 
