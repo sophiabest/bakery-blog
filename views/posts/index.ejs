@@ -20,8 +20,11 @@
                     <td>
                         <%= p.content %>
                     </td>
+                    <td>
+                        <%= p.comment %>
+                    </td>
                     
-                    <td><a href="/posts/<%= p.id %>"></a></td>
+                    <td><a href="/posts/<%= p.id %>">DETAILS</a></td>
                 </tr>
                 <% }); %>
         </tbody>
