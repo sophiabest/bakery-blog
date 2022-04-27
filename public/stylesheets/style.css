@@ -67,7 +67,7 @@ nav > a.active {
 }
 
 #new-form *,
-#add-review-form *,
+#add-comment-form *,
 #add-performer-form * {
   font-size: 20px;
   padding: 5px;
@@ -120,7 +120,7 @@ table td {
   font-weight: bold;
 }
 
-#add-review-form,
+#add-comment-form,
 #add-performer-form {
   display: grid;
   grid-template-columns: auto auto;
@@ -128,7 +128,7 @@ table td {
   margin-bottom: 2rem;
 }
 
-#add-review-form input[type="submit"],
+#add-comment-form input[type="submit"],
 #add-performer-form input[type="submit"]  {
   width: 10rem;
   grid-column: 2 / 3;
@@ -178,13 +178,13 @@ li {
   height: 30px;
 }
 
-.review-user {
+.comment-user {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.review-user img {
+.comment-user img {
   border-radius: 50%;
   height: 40px;
 }

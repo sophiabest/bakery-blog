@@ -1,35 +1,52 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>Post</div>
-    <div>Content</div>
-</section>
+  <div>Title: </div>
+  <div><%= post.title %></div>
+  <div>Content: </div>
+  <div><%= post.content %></div>
+  
 
-<h5 class="post-show-title">Comments</h5>
-<div class="comment-list">
-  <% if (user) { %>
-    <form id="add-review-form" method="POST" action="/posts/<%= post._id %>/comments">
-      <label>Comment:</label>
-      <textarea name="content"></textarea>
-      <input type="submit" value="Add Comment">
-    </form>
-  <% } %>
-  <% let total = 0 %>
-  <% post.comments.forEach(comment => { %>
-    <div class="comment">
-      <div class="profile">
-        </a><img src="<%= comment.userAvatar %>"alt="avatar"><%= comment.userName %>
-      </div>
-      <p><%= comment.text %> </p>
-      <div class="comment-options">
-        <% if (user && user._id.equals(comment.user)) { %>
-          <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
-            <input type="image" src="/images/trash-can-solid.svg" alt="delete">
-          </form>
-        <% } %>
-      </div>
-    </div>
-  <% }) %>
-</div>
+<h2>Comments</h2>
+<% if (user) { %>
+  <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
+    <label>Comment:</label>
+    <textarea name="content"></textarea>
+    <input type="submit" value="Add Comment">
+  </form>
+<% } %>
+
+<% if (post.comments.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let total = 0 %>
+      <% post.comments.forEach(function(c) { %>
+        
+        <tr>
+          <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>"><%= c.userName %></td>
+          <td><%= c.createdAt.toLocaleDateString() %></td>
+          <td><%= c.content %></td>
+          <td>
+            <% if (user && user._id.equals(c.user)) { %>
+              <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Comments Yet</h5>
+<% } %>
+
     
   <%- include("../partials/footer")%>

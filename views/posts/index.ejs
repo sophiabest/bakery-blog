@@ -1,35 +1,21 @@
 <%- include('../partials/header') %>
-
-    <h1>Post List</h1>
-    <table id="list">
-        <thead>
-            <tr>
-                <th>Post:</th>
-                <th>Content:</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% posts.forEach(function(p) { %>
-                <tr>
-                    <td>
-                        <%= p.title %>
-                    </td>
-                    <td>
-                        <%= p.image %>
-                    </td>
-                    <td>
-                        <%= p.content %>
-                    </td>
-                    <td>
-                        <%= p.comment %>
-                    </td>
-                    
-                    <td><a href="/posts/<%= p.id %>">DETAILS</a></td>
-                </tr>
-                <% }); %>
-        </tbody>
-    </table>
-
-
-
-    <%- include('../partials/footer') %>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% posts.forEach(function(p) { %>
+      <tr>
+        <td><%= p.title %></td>
+        <td><%= p.content %></td>
+        <td><a href="/posts/<%= p._id %>">Comments</a></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  
+<%- include('../partials/footer') %>

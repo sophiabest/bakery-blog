@@ -28,7 +28,7 @@ function create(req, res) {
         res.redirect(`/posts/${req.params.id}`);
       });
     });
-}
+  }
 
 
 
