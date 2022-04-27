@@ -13,7 +13,15 @@
         <td><%= p.title %></td>
         <td><%= p.content %></td>
         <td><a href="/posts/<%= p._id %>">Comments</a></td>
-      </tr>
+      
+    
+       
+        <form action="/posts/<%= p.id %>?_method=DELETE"
+          class="delete-form" method="POST">
+          <button type="submit">DELETE <%= p.post %></button>
+        </form>
+      
+    </tr>
       <% }); %>
     </tbody>
   </table>

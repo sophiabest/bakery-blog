@@ -4,7 +4,8 @@ module.exports = {
     index, 
     show,
     new: newPost,
-    create
+    create,
+    delete: deletePost
    
 }
 
@@ -33,4 +34,14 @@ function create(req, res) {
     });
 }
 
-
+function deletePost(req, res, next) {
+    Post.findOne({'post._id': req.params.id, 'post.user': req.params.id}).then(function(post) {
+        if (!post) return res.redirect('/posts');
+        post.remove(req.params.id);
+        post.save().then(function() {
+            res.redirect('/posts');
+        }).catch(function(err) {
+            return next(err)
+        })
+    })
+}
