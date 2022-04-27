@@ -17,7 +17,6 @@ function deleteComment(req, res, next) {
     });
 }
   
-
 function create(req, res) {
     Post.findById(req.params.id, function(err, post) {
       req.body.user = req.user._id;

@@ -2,9 +2,9 @@
 
 <section id="show-page">
   <div>Title: </div>
-  <div><%= post.title %></div>
+  
   <div>Content: </div>
-  <div><%= post.content %></div>
+
   
 
 <h2>Comments</h2>
@@ -28,7 +28,7 @@
     <tbody>
       <% let total = 0 %>
       <% post.comments.forEach(function(c) { %>
-        
+        <% console.log(c._id) %>
         <tr>
           <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>"><%= c.userName %></td>
           <td><%= c.createdAt.toLocaleDateString() %></td>
