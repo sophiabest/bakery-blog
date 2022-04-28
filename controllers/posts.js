@@ -1,3 +1,4 @@
+const { redirect } = require('express/lib/response');
 const Post = require('../models/post');
 
 module.exports = {
@@ -5,7 +6,8 @@ module.exports = {
     show,
     new: newPost,
     create,
-    delete: deletePost
+    delete: deletePost,
+    
    
 }
 

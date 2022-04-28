@@ -2,12 +2,13 @@
 
 <section id="show-page">
   <div>Title: </div>
-  
+  <div><%= post.title %></div>
   <div>Content: </div>
+  <div><%= post.content %></div>
 
-  
+  <a href="/posts/<%= post.id %>/edit">Edit Post</a>
 
-<h2>Comments</h2>
+<h2></h2>
 <% if (user) { %>
   <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
     <label>Comment:</label>
@@ -37,6 +38,10 @@
             <% if (user && user._id.equals(c.user)) { %>
               <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
                 <button type="submit">X</button>
+              </form>
+              <form action="/comments/<%=c._id %>?_method=PUT" method="POST">
+                <input name="content" value="<%= c.content %>">
+                <button type="submit">EDIT COMMENT</button>
               </form>
             <% } %>
           </td>

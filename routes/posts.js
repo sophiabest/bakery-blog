@@ -15,6 +15,7 @@ router.get('/', postsCtrl.index);
 router.get('/new', postsCtrl.new);
 router.get('/:id', postsCtrl.show);
 router.post('/', isLoggedIn, postsCtrl.create);
-router.delete('/:id', postsCtrl.delete);
+router.delete('/:id', isLoggedIn, postsCtrl.delete);
+
 
 module.exports = router;

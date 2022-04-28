@@ -14,15 +14,14 @@
       <tr>
         <td><%= p.title %></td>
         <td><%= p.content %></td>
+        <td class="comment-user"><img alt="avatar" src="<%= p.userAvatar %>"><%= p.userName %></td>
         <td><a href="/posts/<%= p._id %>">Comments</a></td>
-      
-    
-       
+        <% if (user && user._id.equals(p.user)) { %>
         <form action="/posts/<%= p.id %>?_method=DELETE"
           class="delete-form" method="POST">
           <button type="submit">DELETE <%= p.post %></button>
         </form>
-      
+      <% } %>
     </tr>
       <% }); %>
     </tbody>

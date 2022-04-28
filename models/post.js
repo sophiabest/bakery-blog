@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const commentSchema = new Schema({
   content: {
     type: String,
-    match: /.{5,}/
   },
   user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
   userName: String,
