@@ -6,9 +6,7 @@ module.exports = {
     show,
     new: newPost,
     create,
-    delete: deletePost,
-    
-   
+    delete: deletePost
 }
 
 function index(req, res) {
