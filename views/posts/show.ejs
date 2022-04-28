@@ -1,14 +1,11 @@
 <%- include('../partials/header') %>
-
+<div class="container">
 <section id="show-page">
   <div>Title: </div>
   <div><%= post.title %></div>
   <div>Content: </div>
   <div><%= post.content %></div>
-
-  <a href="/posts/<%= post.id %>/edit">Edit Post</a>
-
-<h2></h2>
+  
 <% if (user) { %>
   <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
     <label>Comment:</label>
