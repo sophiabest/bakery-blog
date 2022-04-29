@@ -86,8 +86,7 @@ MongoDB Atlas | Express  | Node.js | JavaScript | EJS | Mongoose ODM | Google Oa
 <!-- #### [Pitch-Deck](https://docs.google.com/presentation/d/1h2wwLEPFEW8QYUVp-uX2hn5afxvE5GVZatkmLsMW-J4/edit?usp=sharing)
 
 
-
-## Next Steps
+ Next Steps
 + Add tags/categoroes
 + Add ability to follow other users
 + Add user profiles
