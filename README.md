@@ -44,7 +44,7 @@ A blog to post useful tips and tricks to help other bakers succeed.
 </details>
 
 ## Technologies Used
-MongoDB Atlas | Express | React | Node.js | JavaScript | Python | Django | PostgreSQL | EJS | Google Materialize UI | Semantic UI | JSX | Mongoose ODM | JSON Web Token Authorization | Google Oauthorization 2.0 | AWS S3 | Heroku | GitHub Pages | draw.io | Lucidchart | HTML5 | CSS | npm | nodemon  
+MongoDB Atlas | Express  | Node.js | JavaScript | EJS | Mongoose ODM | Google Oauthorization 2.0 | Heroku | GitHub Pages | HTML5 | CSS | npm | nodemon  
 
 
 ## Getting Started
