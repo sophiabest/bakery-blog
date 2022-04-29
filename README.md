@@ -83,14 +83,13 @@ MongoDB Atlas | Express  | Node.js | JavaScript | EJS | Mongoose ODM | Google Oa
 <a href="https://bakers-kitchen-blog.herokuapp.com/">https://bakers-kitchen-blog.herokuapp.com/</a>
 </details>
 
-<!-- #### [Pitch-Deck](https://docs.google.com/presentation/d/1h2wwLEPFEW8QYUVp-uX2hn5afxvE5GVZatkmLsMW-J4/edit?usp=sharing)
-
-
+<details>
  Next Steps
 + Add tags/categoroes
 + Add ability to follow other users
 + Add user profiles
 + Add home page
 + Fix layout of blog
+ </details>
 
 
